@@ -1,0 +1,61 @@
+<view>
+  <view class="title">
+    <text>个人中心</text>
+  </view>
+
+  <view class="login">
+    <view class="myimage">
+      <image src="../../assets/img/my/myimage.jpg"></image>
+    </view>
+    <view class="content">
+      <text>偶然</text>
+      <image src="../../assets/img/my/phone.png" class="phone"></image>
+      <text>166****2283</text>
+      <text>></text>
+    </view>
+  </view>
+
+  <view class="money">
+    <view class="money-item">
+      <text>0.0</text>
+      <text>元</text>
+      <text class="isblock">我的余额</text>
+    </view>
+    <view class="money-item">
+      <text>0</text>
+      <text>个</text>
+      <text class="isblock">我的优惠</text>
+    </view>
+    <view class="money-item">
+      <text>0</text>
+      <text>分</text>
+      <text class="isblock">我的积分</text>
+    </view>
+  </view>
+
+  <view class="host">
+    <view class="host-item">
+      <image src="../../assets/img/my/message.png"></image>
+      <text>我的消息</text>
+    </view>
+    <view class="host-item">
+      <image src="../../assets/img/my/super.png"></image>
+      <text>积分商城</text>
+    </view>
+    <view class="host-item" >
+      <image src="../../assets/img/my/vip.png"></image>
+      <text style="border: none;">会员卡</text>
+    </view>
+  </view>
+
+  <view class="host" style="border: none;">
+    <view class="host-item">
+      <image src="../../assets/img/my/cart.png"></image>
+      <text>我的购物车</text>
+    </view>
+    <view class="host-item">
+      <image src="../../assets/img/my/app.png"></image>
+      <text>下载购物APP</text>
+    </view>
+   </view>
+</view>

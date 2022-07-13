@@ -1,0 +1,22 @@
+<view class="categroy">
+
+  <view class="title">
+    <text>商品分类</text>
+  </view>
+  <view class="all-scroll">
+    <!-- 分类标题 -->
+    <scroll-view scroll-y="true" class="scroll-left">
+      <view wx:for="{{categroyTitle}}" class="{{maitKeyItem === item.maitKey?'istype':'nonetype'}}" bindtap="getMaitKey" data-info="{{item.maitKey}}" wx:key="index">
+        <p>{{item.title}}</p>
+      </view>
+    </scroll-view>
+
+    <!-- 分类内容 -->
+    <scroll-view class="scroll-right" scroll-y="true">
+      <view wx:for="{{categroyData}}" class="categroy-data-item" wx:key="index" bindtap="bth" data-link="{{item.link}}">
+        <image src="{{item.image}}"></image>
+        <p>{{item.title}}</p>
+      </view>
+    </scroll-view>
+  </view>
+</view>

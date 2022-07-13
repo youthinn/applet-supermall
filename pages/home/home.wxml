@@ -1,0 +1,47 @@
+<view id="home">
+  <view class="title">
+    <text>首页</text>
+  </view>
+  <!-- <web-view src="https://www.baidu.com/"></web-view> -->
+  <scroll-view class="home-scroll">
+iid
+    <!-- 返回顶部 -->
+    <view id="back-top" hidden="{{nowposition>540 ? false : true}}" bindtap="backTop" model:scroll-top="{{0}}">
+      <image src="../../assets/img/commen/backTop.png"></image>
+    </view>
+
+    <!-- 轮播图 -->
+    <view class="banner">
+      <swiper autoplay="true" interval="3000" indicator-dots="true" duration="1000" circular="true" indicator-color="#ffffff" indicator-active-color="#d43e2e">
+        <swiper-item wx:for="{{banners}}" bindtap="bth" data-link="{{item.link}}">
+            <image src="{{item.image}}" mode="heightFix" class="bannerimg"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+
+    <!-- 四个推荐 -->
+    <view class="recommend">
+      <view class="recommend-item" wx:for="{{recommends}}" bindtap="bth" data-link="{{item.link}}">
+          <image src="{{item.image}}"></image>
+          <p>{{item.title}}</p>
+      </view>
+    </view>
+
+    <!-- 本周流行 -->
+    <view class="weekhot" bindtap="bth" data-link="https://act.mogujie.com/zzlx67">
+        <image src="../../assets/img/home/recommend_bg.jpg"></image>
+    </view>
+
+    <!-- 商品信息 -->
+    <view class="goods">
+      <view wx:for="{{goods}}" class="goods-item" wx:key="index" bindtap="godetail" data-iid="{{item.iid}}">
+        <image src="{{item.show.img}}"></image>
+        <p class="goods-title">{{item.title}}</p>
+        <text class="goods-price">￥{{item.price}}</text>
+        <image class="img-like" src="../../assets/img/home/like.png"></image>
+        <text class="goods-cfav">{{item.cfav}}</text>
+      </view>
+    </view>
+
+  </scroll-view>
+</view>

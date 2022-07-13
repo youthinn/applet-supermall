@@ -1,0 +1,11 @@
+<view class="cart">
+  <view class="title">
+    <text>购物车({{}})</text>
+  </view>
+  <view class="cartbar">
+    <image src="../../assets/img/commen/all.png" style="padding-left: 8px;"></image>
+    <text style="color: #cdcdcd;padding-left: 2px;">全选</text>
+    <text style="padding-left: 10px;">合计:￥</text>
+    <text class="close">结算</text>
+  </view>
+</view>

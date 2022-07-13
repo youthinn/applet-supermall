@@ -1,0 +1,146 @@
+<view id="detail">
+
+  <!-- 顶部导航栏 -->
+  <view class="nav" style="z-index: 999;">
+    <view>
+      <image src="../../assets/img/detail/back.png" bindtap="backhome"></image>
+    </view>
+    <view bindtap="togoods"><text>商品</text></view>
+    <view bindtap="togoods"><text>参数</text></view>
+    <view><text>评价</text></view>
+    <view><text>推荐</text></view>
+  </view>
+
+  <!-- 底部购物车 -->
+  <view class="jioncart" style="z-index: 999;">
+    <view class="jion">
+      <image src="../../assets/img/commen/kefu.png"></image><text>客服</text>
+    </view>
+    <view class="jion">
+      <image src="../../assets/img/commen/shop.png"></image><text>店铺</text>
+    </view>
+    <view class="jion">
+      <image src="../../assets/img/commen/like.png"></image><text>收藏</text>
+    </view>
+    <view class="jion" id="jion" bindtap="jionCart"><text style="padding-top: 15px;">加入购物车</text></view>
+    <view class="jion" id="buy"><text style="font-size: 30rpx;padding-top: 15px;">购买</text></view>
+  </view>
+
+  <!-- 返回顶部 -->
+  <scroll-view class="scroll-detail" scroll-y="true">
+    <view id="back-top" hidden="{{nowposition>540 ? false : true}}" bindtap="backTop" model:scroll-top="{{0}}">
+      <image src="../../assets/img/commen/backTop.png"></image>
+    </view>
+
+    <!-- 商品轮播图 -->
+    <view class="detail-banner">
+      <swiper autoplay="true" interval="3000" indicator-dots="true" duration="1000" circular="true" indicator-color="#ffffff" indicator-active-color="#d43e2e">
+        <swiper-item wx:for="{{banner}}">
+          <a href="{{item.link}}">
+            <image src="{{https}}{{item}}" mode="widthFix" class="bannerimg"></image>
+          </a>
+        </swiper-item>
+      </swiper>
+    </view>
+
+    <!-- 商品价格信息 -->
+    <view class="shopmessage">
+      <view class="title"><text>{{title}}</text></view>
+      <view class="price">
+        <text class="newPrice">{{price}}</text>
+        <text class="oldPrice">{{oldPrice}}</text>
+        <text class="discount">{{discount}}</text>
+      </view>
+    </view>
+
+    <!-- 销量、收藏、默认快递 -->
+    <view class="columns">
+      <text wx:for="{{columns}}" class="columns-item">{{item}}</text>
+    </view>
+
+    <view class="hr"></view>
+
+    <!-- 七天无理由退货 -->
+    <view class="services">
+      <view class="services-item" wx:for="{{services}}">
+        <image src="http://s11.mogucdn.com/p1/160607/upload_ie4tkmbtgqztomjqhezdambqgqyde_44x44.png"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+
+    <!-- 店铺信息 -->
+    <view class="shop">
+      <view>
+        <!-- 报错问题 -->
+        <image src="{{https}}{{shop.shopLogo}}" wx:if="{{https}}{{shop.shopLogo}}" class="shop-logo"></image>
+        <text class="shop-name">{{shop.name}}</text>
+      </view>
+      <view class="shop-sells">
+        <view class="sells-count">
+          <view>{{shop.cSells}}</view>
+          <view>总销量</view>
+        </view>
+        <view class="goods-count">
+          <view>{{shop.cGoods}}</view>
+          <view>全部宝贝</view>
+        </view>
+      </view>
+      <view class="shop-score">
+        <view wx:for="{{shop.score}}">
+          <text>{{item.name}}</text>
+          <block>
+            <text class="{{item.isBetter?'isheight':'islow'}}">{{item.score}}</text>
+            <text class="{{item.isBetter?'isheight':'islow'}}">{{item.isBetter?"高":"低"}}</text>
+          </block>
+        </view>
+      </view>
+      <view class="bth">
+        <text class="shop-bth">进店逛逛</text>
+      </view>
+    </view>
+
+    <!-- 模特效果图 -->
+    <view class="info-desc">
+      <view style="padding: 20rpx;">穿着效果</view>
+      <view class="desc-item" wx:for="{{descImage}}">
+        <image src="{{https}}{{item}}" mode="widthFix"></image>
+      </view>
+      <view class="border-bottom"></view>
+    </view>
+
+    <!-- 商品尺寸信息 -->
+    <view class="param-xl">
+      <view class="xl" wx:for="{{paramDesc}}">
+        <text>{{item.key}}</text>
+        <text>{{item.value}}</text>
+      </view>
+      <view class="border-bottom"></view>
+    </view>
+
+    <!-- 其他用户评价 -->
+    <view class="user">
+      <view class="user-info">
+        <text>用户评价</text>
+        <text>更多></text>
+      </view>
+      <view class="user-img">
+        <image src="{{https}}{{usermessage.user.avatar}}"></image>
+        <text>{{usermessage.user.uname}}</text>
+      </view>
+      <view class="content">{{usermessage.content}}</view>
+      <view class="border-bottom" style="margin-bottom: 16rpx;"></view>
+    </view>
+
+    <!-- 推荐 -->
+    <view class="recommend">
+      <view wx:for="{{recommend}}" class="goods-item" wx:key="index" bindtap="getRecommend" data-iid="{{item.iid}}">
+        <image src="{{item.show.img}}"></image>
+        <p class="goods-title">{{item.title}}</p>
+        <text class="goods-price">￥{{item.price}}</text>
+        <image class="img-like" src="../../assets/img/home/like.png" style=""></image>
+        <text class="goods-cfav">{{item.cfav}}</text>
+      </view>
+    </view>
+  </scroll-view>
+
+</view>
